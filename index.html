@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Piano</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section>
+      <video
+        src="./video/mylivewallpapers.com-Tekken-7-Heihachi.mp4"
+        autoplay
+        muted
+        loop
+      ></video>
+      <h1>
+        <span>P</span>
+        <span>L</span>
+        <span>A</span>
+        <span>Y</span>
+        <span>I</span>
+        <span>T</span>
+      </h1>
+    </section>
+
+    <div class="keys">
+      <div class="key" data-key="87">
+        <kbd>W</kbd>
+        <span class="sound btn"></span>
+      </div>
+      <div class="key" data-key="69">
+        <kbd>E</kbd>
+        <span class="sound btn"></span>
+      </div>
+      <div class="key" data-key="82">
+        <kbd>R</kbd>
+        <span class="sound btn"></span>
+      </div>
+      <div class="key" data-key="84">
+        <kbd>T</kbd>
+        <span class="sound btn"></span>
+      </div>
+      <div class="key" data-key="73">
+        <kbd>I</kbd>
+        <span class="sound btn"></span>
+      </div>
+      <div class="key" data-key="79">
+        <kbd>O</kbd>
+        <span class="sound btn"></span>
+      </div>
+      <div class="key" data-key="80">
+        <kbd>P</kbd>
+        <span class="sound btn"></span>
+      </div>
+
+      <div class="key" data-key="65">
+        <kbd>A</kbd>
+        <span class="sound btn"></span>
+      </div>
+      <div class="key" data-key="83">
+        <kbd>S</kbd>
+        <span class="sound btn"></span>
+      </div>
+      <div class="key" data-key="68">
+        <kbd>D</kbd>
+        <span class="sound btn"></span>
+      </div>
+      <div class="key" data-key="70">
+        <kbd>F</kbd>
+        <span class="sound btn"></span>
+      </div>
+      <div class="key" data-key="71">
+        <kbd>G</kbd>
+        <span class="sound btn"></span>
+      </div>
+      <div class="key" data-key="72">
+        <kbd>H</kbd>
+        <span class="sound btn"></span>
+      </div>
+
+      <div class="key" data-key="74">
+        <kbd>J</kbd>
+        <span class="sound btn"></span>
+      </div>
+
+      <div class="key" data-key="75">
+        <kbd>K</kbd>
+        <span class="sound btn"></span>
+      </div>
+
+      <div class="key" data-key="76">
+        <kbd>L</kbd>
+        <span class="sound btn"></span>
+      </div>
+
+      <div class="key" data-key="67">
+        <kbd>C</kbd>
+        <span class="sound btn"></span>
+      </div>
+
+      <div class="key" data-key="86">
+        <kbd>V</kbd>
+        <span class="sound btn"></span>
+      </div>
+
+      <div class="key" data-key="66">
+        <kbd>B</kbd>
+        <span class="sound btn"></span>
+      </div>
+
+      <div class="key" data-key="78">
+        <kbd>N</kbd>
+        <span class="sound btn"></span>
+      </div>
+    </div>
+    <audio data-key="65" src="tune/key01.mp3"></audio>
+    <audio data-key="66" src="tune/key02.mp3"></audio>
+    <audio data-key="67" src="tune/key03.mp3"></audio>
+    <audio data-key="68" src="tune/key04.mp3"></audio>
+    <audio data-key="69" src="tune/key05.mp3"></audio>
+    <audio data-key="70" src="tune/key06.mp3"></audio>
+    <audio data-key="71" src="tune/key07.mp3"></audio>
+    <audio data-key="62" src="tune/key08.mp3"></audio>
+    <audio data-key="72" src="tune/key09.mp3"></audio>
+    <audio data-key="73" src="tune/key10.mp3"></audio>
+    <audio data-key="74" src="tune/key11.mp3"></audio>
+    <audio data-key="75" src="tune/key12.mp3"></audio>
+    <audio data-key="76" src="tune/key13.mp3"></audio>
+    <audio data-key="77" src="tune/key14.mp3"></audio>
+    <audio data-key="78" src="tune/key15.mp3"></audio>
+    <audio data-key="79" src="tune/key16.mp3"></audio>
+    <audio data-key="80" src="tune/key17.mp3"></audio>
+    <audio data-key="81" src="tune/key18.mp3"></audio>
+    <audio data-key="82" src="tune/key19.mp3"></audio>
+    <audio data-key="83" src="tune/key20.mp3"></audio>
+    <audio data-key="84" src="tune/key21.mp3"></audio>
+    <audio data-key="85" src="tune/key22.mp3"></audio>
+    <audio data-key="86" src="tune/key23.mp3"></audio>
+    <audio data-key="87" src="tune/key24.mp3"></audio>
+    <script>
+      function playSound(e) {
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const key = document.querySelector(`.key[data-key ="${e.keyCode}"]`);
+        if (!audio) return;
+        audio.currentTime = 0;
+        audio.play();
+        key.classList.add("playing");
+      }
+      function RemoveTransition(e) {
+        if (e.propertyName !== "transform") return;
+        this.classList.remove("playing");
+      }
+      const keys = document.querySelectorAll(".key");
+      keys.forEach((key) => {
+        key.addEventListener("transitionend", RemoveTransition);
+      });
+      window.addEventListener("keydown", playSound);
+    </script>
+  </body>
+</html>

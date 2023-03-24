@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.keys {
+  display: flex;
+  align-items: center;
+  /* min-height: ; */
+  position: relative;
+  bottom: 15rem;
+  justify-content: center;
+}
+.key {
+  border: 0.2rem solid rgb(255, 255, 255);
+  margin: 0.5rem;
+  width: 4.5rem;
+  color: #fff;
+  height: 6rem;
+  background: conic-gradient(from 180deg at 50% 50%, #000000, #ffffff);
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0rem 0.4rem;
+  transition: all 0.07s ease;
+  box-shadow: rgb(255, 255, 255) 0px 2px 4px,
+    rgb(255, 255, 255) 0px 7px 13px -3px, rgb(255, 255, 255) 0px -3px 0px inset;
+}
+kbd {
+  font-size: 2.88rem;
+  font-family: sans-serif;
+  display: block;
+}
+.playing {
+  transform: scale(1.1);
+  border-color: rgb(0, 0, 0);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+section {
+  height: 100vh;
+  background: #000;
+}
+section:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 125%;
+  height: 100%;
+  background-image: linear-gradient(
+    to right,
+    red,
+    yellow,
+    #ff8700,
+    yellow,
+    red
+  );
+  mix-blend-mode: color;
+  pointer-events: none;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  color: #ddd;
+  font-size: 5em;
+  font-family: sans-serif;
+  letter-spacing: 0.2em;
+}
+h1 span {
+  display: inline-block;
+  animation: animate 1s linear forwards;
+}
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: rotateY(90deg);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg);
+    filter: blur(0px);
+  }
+}
+h1 span:nth-child(1) {
+  animation-delay: 1s;
+}
+h1 span:nth-child(2) {
+  animation-delay: 2s;
+}
+h1 span:nth-child(3) {
+  animation-delay: 2.5s;
+}
+h1 span:nth-child(4) {
+  animation-delay: 3s;
+}
+h1 span:nth-child(5) {
+  animation-delay: 3.5s;
+}
+h1 span:nth-child(6) {
+  animation-delay: 4s;
+}
+h1 span:nth-child(7) {
+  animation-delay: 4.5s;
+}
+h1 span:nth-child(8) {
+  animation-delay: 5s;
+}
